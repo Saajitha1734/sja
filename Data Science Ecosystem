@@ -1,0 +1,98 @@
+Data Science Tools and Ecosystem
+In this notebook, Data Science Tools and Ecosystem are summarized.
+Some of the popular languages that Data Scientists use are:
+1. Python
+2. R
+3. SQL
+4. Julia
+5. Scala
+6. Java
+7. C++
+8. MATLAB
+9. SAS
+10. Ruby
+
+Some of the commonly used libraries used by Data Scientists include:
+1. NumPy
+2. pandas
+3. matplotlib
+4. seaborn
+5. scikit-learn
+6. TensorFlow
+7. PyTorch
+8. Keras
+9. statsmodels
+10. NLTK
+
+Data Science Tools
+1. Jupyter Notebook
+2. RStudio
+3. Anaconda
+4. Tableau
+5. IBM Watson Studio
+6. Microsoft Azure Machine Learning
+7. Google Colab
+8. KNIME
+9. RapidMiner
+10. Weka
+
+Below are a few examples of evaluating arithmetic expressions in Python
+1. Basic Arithmetic 
+result = 5 + 3 * 2
+print(result)  # Output: 11
+
+2. Parentheses 
+result = (10 + 5) / 2
+print(result)  # Output: 7.5
+
+3. Exponents 
+result = 2 ** 3
+print(result)  # Output: 8
+
+4. Floating-Point Division 
+result = 10 / 3
+print(result)  # Output: 3.3333333333333335
+
+5. Integer Division (Floor Division):
+result = 10 // 3
+print(result)  # Output: 3
+
+This a simple arithmetic expression to mutiply then add integers
+result = (3 * 4) + 5
+print(result)  # Output: 17
+
+This will convert 200 minutes to hours by diving by 60
+minutes = 200
+hours = minutes / 60
+print(hours)  # Output: 3.3333333333333335
+
+Objectives of Data Science
+- Extract insights from large and complex datasets.
+- Develop predictive models for making accurate forecasts.
+- Discover patterns and trends in data to support decision-making.
+- Enhance business processes and operations through data-driven strategies.
+- Communicate findings effectively to both technical and non-technical stakeholders.
+
+Author Name:
+Saajitha
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
