@@ -1,0 +1,144 @@
+import yfinance as yf
+
+# Define the ticker symbol for Tesla
+ticker_symbol = "TSLA"
+
+# Use yfinance to fetch the stock data
+tesla_data = yf.download(ticker_symbol, start="2022-01-01", end="2022-12-31")
+
+# Reset the index
+tesla_data.reset_index(inplace=True)
+
+# Display the first five rows using the head function
+print(tesla_data.head())
+
+import pandas as pd
+import requests
+from bs4 import BeautifulSoup
+
+# URL of the webpage containing Tesla's revenue data
+url = "https://www.macrotrends.net/stocks/charts/TSLA/tesla/revenue"
+
+# Send an HTTP GET request to fetch the webpage content
+response = requests.get(url)
+
+# Parse the HTML content using BeautifulSoup
+soup = BeautifulSoup(response.content, 'html.parser')
+
+# Find the table containing revenue data
+table = soup.find('table', class_='historical_data_table')
+
+# Extract data from the table and create a DataFrame
+data = []
+for row in table.find_all('tr')[1:]:
+    cols = row.find_all('td')
+    data.append([col.get_text(strip=True) for col in cols])
+
+# Create the DataFrame
+columns = ['Date', 'Revenue']
+tesla_revenue = pd.DataFrame(data, columns=columns)
+
+# Display the last five rows using the tail function
+print(tesla_revenue.tail())
+
+import yfinance as yf
+import pandas as pd
+
+# Extract stock data for GameStop (GME)
+gme = yf.Ticker("GME")
+gme_data = gme.history(period="1y")
+
+# Reset the index of the DataFrame
+gme_data.reset_index(inplace=True)
+
+# Display the first five rows using the head function
+print(gme_data.head())
+
+import pandas as pd
+import requests
+from bs4 import BeautifulSoup
+
+# URL of the webpage containing GME revenue data
+url = "https://www.macrotrends.net/stocks/charts/GME/gamestop/revenue"
+
+# Send an HTTP GET request to the URL
+response = requests.get(url)
+
+# Parse the HTML content using BeautifulSoup
+soup = BeautifulSoup(response.content, 'html.parser')
+
+# Find the revenue data table
+revenue_table = soup.find("table", class_="historical_data_table")
+
+# Initialize empty lists for columns
+dates = []
+revenues = []
+
+# Iterate through rows of the table to extract data
+for row in revenue_table.find_all("tr")[1:]:
+    cols = row.find_all("td")
+    dates.append(cols[0].text)
+    revenues.append(cols[1].text.replace("$", "").replace(",", ""))
+
+# Create a DataFrame from the extracted data
+gme_revenue = pd.DataFrame({
+    "Date": dates,
+    "Revenue": revenues
+})
+
+# Display the last five rows using the tail function
+print(gme_revenue.tail())
+
+import yfinance as yf
+import matplotlib.pyplot as plt
+
+def make_graph(data, title):
+    plt.figure(figsize=(10, 6))
+    plt.plot(data['Date'], data['Close'], marker='o', linestyle='-', color='b', label='Closing Price')
+    plt.xlabel('Date')
+    plt.ylabel('Price')
+    plt.title(title)
+    plt.legend()
+    plt.grid()
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+
+# Symbol for Tesla
+symbol = 'TSLA'
+
+# Download Tesla stock data using yfinance
+tesla_data = yf.download(symbol, start='2021-01-01', end='2021-12-31', progress=False)
+
+# Reset index
+tesla_data.reset_index(inplace=True)
+
+# Call the make_graph function to plot the Tesla stock data
+make_graph(tesla_data, 'Tesla Stock Price in 2021')
+
+import yfinance as yf
+import matplotlib.pyplot as plt
+
+def make_graph(data, title):
+    plt.figure(figsize=(10, 6))
+    plt.plot(data['Date'], data['Close'], marker='o', linestyle='-', color='b', label='Closing Price')
+    plt.xlabel('Date')
+    plt.ylabel('Price')
+    plt.title(title)
+    plt.legend()
+    plt.grid()
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+
+# Symbol for GameStop
+symbol = 'GME'
+
+# Download GameStop stock data using yfinance
+gme_data = yf.download(symbol, start='2021-01-01', end='2021-12-31', progress=False)
+
+# Reset index
+gme_data.reset_index(inplace=True)
+
+# Call the make_graph function to plot the GameStop stock data
+make_graph(gme_data, 'GameStop Stock Price in 2021')
